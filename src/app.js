@@ -11,3 +11,25 @@
 const arrayOfNumbers = [1,2,3,4,5,6];
 const itemToSearch = 4;
 
+const NEG_INF = -1000000
+
+function createPop(title,currIndex,check = false) {
+  let h3 = document.createElement("h3")
+  h3.innerText = title
+
+  function find() {
+    for(let i = 0;i<arrayOfNumbers.length; i++) {
+      if(arrayOfNumbers[i] === currIndex){
+        currIndex = i
+        check = true
+      }
+    }
+  }
+
+  return function() {
+    find()
+    console.log(check,currIndex)
+    return check ? `The item is present and is at index ${currIndex}` : `The item is not present and is at index ${NEG_INF}`
+    
+  }  
+}
